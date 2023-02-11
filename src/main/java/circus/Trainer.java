@@ -1,3 +1,9 @@
+package circus;
+
+import circus.animals.Animal;
+import circus.animals.Bird;
+import circus.animals.Duck;
+
 public class Trainer {
     public static void main(String[] args) {
         Duck d = new Duck();
@@ -15,7 +21,7 @@ public class Trainer {
         train(new Duck());
         // train(new Parrot());
 
-        Animal a2 = new Animal();
+      //  Animal a2 = new Animal(); since animal is instantiate, cannot create animal object
         Bird b2 = new Bird();
 
     }
@@ -25,7 +31,11 @@ public class Trainer {
     }
 
     private static void train(Bird bird) {
-        Duck d = (Duck) bird;
-        d.swim();
+        if (bird instanceof Duck) {
+            Duck d = (Duck) bird;
+            d.swim();
+        } else {
+            System.out.println("Not a duck!");
+        }
     }
 }
